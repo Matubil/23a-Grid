@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html{
+    font-size: 16px;
+}
+
 body{
     background-color: #222;
     color: white;
@@ -11,5 +15,44 @@ body{
 }
 
 .grid-container{
+    padding: 10px;
     background-color: brown;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    /*quiere decir que va a poner un orden de 1 por columna de 100px
+    si le pongo 2 valores va a poner 2 box a lo ancho y asi sucesivamente
+    tambien se puede usar porcentajes
+    tambien se puede usar la medida fr, que es la medida 1 fraccion entonces podes irlo acomodando y cada fraccion que agregues lo que va a hacer es irse diviendo el espacio entre cada fraccion
+    tambien se puede usar auto para cada cuadrado pero lo que va a hacer es repartir el espacio segun lo que ocupa el contenido en caso el fr no, los va a separar por igual*/
+    grid-template-rows: 150px 300px 50px;
+    /*esto es para ordenar por fila*/
+    /* gap: 10px; separacion entre las boxs haciendo que el fraccion se adapte a eso */
+    column-gap: 10px; /*espacio entre columnas*/
+    row-gap: 10px;  /*espacio entre filas*/
 }
+
+.box-1{
+    /* grid-column: 1/4; /*quiero que empiece ocupando desde la linea 1 y termine en la linea 4*/
+    /* grid-row: 1/3;  */
+    grid-area: 2 / 1 / 3 / 4
+    /*el grid area es como definir colum y row a la vez
+    primer valor donde quiero que empiece mi fila, segundo valro donde quiero que empiece la columna, 3ro donde quiero que termine mi fila y 4to donde quiero que termine mi columna*/
+}
+
+.box-4{
+    /*puedo hacer que las cajas pisen a otras, las demas se van a ir adaptando*/
+    /* grid-column: 2/5; 
+    recordar que se puede usar !important para remarcar que quiero que se use ese color*/
+    grid-column: span 3;
+    background-color: aqua;
+    grid-row: 2/4;
+
+}
+
+.box-grid{
+    padding: 1.5rem;
+    border: 2px solid yellow;
+    background-color: #888;
+}
+
+/*cuando se agregan mas boxs que no estan definidos los tamaños lo que pasa es que grid los intenta de adaptar automaticamente*/

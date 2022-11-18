@@ -1,0 +1,43 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    height: 100vh; /*le digo que ocupe todo lo que se ve, view port high es la unidad*/
+    grid-template-areas: 
+        /*lo que hacemos es armar una estructura con el texto de abajo*/
+        'header  header header  header header header header'
+        'sidebar sidebar main    main   main   main  aside'
+        'sidebar sidebar footer footer footer footer footer'
+    ;
+    grid-template-rows: 60px 1fr 150px ; /*lo que hice aca es repartir el tamaño de las filas de arriba*/
+}
+
+.header{
+    background-color: salmon;
+    grid-area: header; /*le estoy diciendo que mi grid area se va a llamar header, entonces lo va a ir interpretando con el grid-template-areas que cree en el body*/
+
+}
+
+.sidebar{
+    background-color: dodgerblue;
+    grid-area: sidebar;
+}
+
+.main{
+    background-color: green;
+    grid-area: main;
+}
+
+.aside{
+    background-color: brown;
+    grid-area: aside;
+}
+
+.footer{
+    background-color: #777;
+    grid-area: footer;
+}
